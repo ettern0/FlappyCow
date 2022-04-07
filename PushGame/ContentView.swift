@@ -8,27 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    enum Schedule: CaseIterable {
-        case sec5
-        case min1
-        case min5
-        case random
-
-        var textValue: String {
-            switch self {
-            case .sec5:
-                return "5 sec."
-            case .min1:
-                return "1 min."
-            case .min5:
-                return "5 min."
-            case .random:
-                return "Random"
-            }
-        }
-    }
-
-    @State var selectedSchedule: Schedule = .sec5
+    @State var selectedTime: Time = .sec5
     @State var cowIsAnimated = false
 
     var body: some View {
@@ -36,36 +16,31 @@ struct ContentView: View {
             Image("classic-cow-1")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .offset(y: cowIsAnimated ? -100 : 0)
-                .animation(Animation.linear(duration: 1).repeatForever(), value: cowIsAnimated)
+                .offset(y: cowIsAnimated ? -80 : 0)
+                .animation(Animation.easeInOut(duration: 1.5).repeatForever(), value: cowIsAnimated)
+
             Text("Choose a time")
                 .font(.title)
-            Picker("Choose a time", selection: $selectedSchedule) {
-                ForEach(Schedule.allCases, id: \.self) {
+
+            Picker("Choose a time", selection: $selectedTime) {
+                ForEach(Time.allCases, id: \.self) {
                     Text($0.textValue)
                 }
             }.pickerStyle(.segmented)
-            PushButton(labelText: "Have a fun")
-                .padding(10)
+
+            Button {
+                PushController.registerPush(with: selectedTime)
+            } label: {
+                Text("Have a fun")
+            }
+            .buttonStyle(CapsuleButtonStyle())
+            .padding(10)
         }
         .onAppear {
             cowIsAnimated = true
         }
         .padding(16)
     }
-
-    private struct PushButton: View {
-        let labelText: String
-        var body: some View {
-            Button {
-
-            } label: {
-                Text(labelText)
-            }
-            .buttonStyle(CapsuleButtonStyle())
-        }
-    }
-
 }
 
 private struct CapsuleButtonStyle: ButtonStyle {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8879C3A827FE7F2400EBBCA8 /* PushController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8879C3A727FE7F2400EBBCA8 /* PushController.swift */; };
+		8879C3AA27FE7FA200EBBCA8 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8879C3A927FE7FA200EBBCA8 /* Time.swift */; };
 		927CE98827FD86EA00178D18 /* PushGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CE98727FD86EA00178D18 /* PushGameApp.swift */; };
 		927CE98A27FD86EA00178D18 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927CE98927FD86EA00178D18 /* ContentView.swift */; };
 		927CE98C27FD86F200178D18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 927CE98B27FD86F200178D18 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8879C3A727FE7F2400EBBCA8 /* PushController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushController.swift; sourceTree = "<group>"; };
+		8879C3A927FE7FA200EBBCA8 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		927CE98427FD86EA00178D18 /* PushGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		927CE98727FD86EA00178D18 /* PushGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushGameApp.swift; sourceTree = "<group>"; };
 		927CE98927FD86EA00178D18 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 			children = (
 				927CE98727FD86EA00178D18 /* PushGameApp.swift */,
 				927CE98927FD86EA00178D18 /* ContentView.swift */,
+				8879C3A727FE7F2400EBBCA8 /* PushController.swift */,
+				8879C3A927FE7FA200EBBCA8 /* Time.swift */,
 				927CE98B27FD86F200178D18 /* Assets.xcassets */,
 				927CE98D27FD86F200178D18 /* Preview Content */,
 			);
@@ -96,6 +102,7 @@
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1330;
+				ORGANIZATIONNAME = "Granda L";
 				TargetAttributes = {
 					927CE98327FD86EA00178D18 = {
 						CreatedOnToolsVersion = 13.3;
@@ -137,8 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8879C3AA27FE7FA200EBBCA8 /* Time.swift in Sources */,
 				927CE98A27FD86EA00178D18 /* ContentView.swift in Sources */,
 				927CE98827FD86EA00178D18 /* PushGameApp.swift in Sources */,
+				8879C3A827FE7F2400EBBCA8 /* PushController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
