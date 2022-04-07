@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var selectedTime: Time = .sec5
-    @State var cowIsAnimated = false
+    @State private var selectedTime: Time = .sec5
+    @State private var cowIsAnimated = false
+
+    private let pushController = PushController()
 
     var body: some View {
         VStack() {
@@ -29,7 +31,7 @@ struct ContentView: View {
             }.pickerStyle(.segmented)
 
             Button {
-                PushController.registerPush(with: selectedTime)
+                pushController.registerPush(with: selectedTime)
             } label: {
                 Text("Have a fun")
             }
@@ -37,6 +39,7 @@ struct ContentView: View {
             .padding(10)
         }
         .onAppear {
+            pushController.prepare()
             cowIsAnimated = true
         }
         .padding(16)
@@ -61,11 +64,5 @@ private struct CapsuleButtonStyle: ButtonStyle {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(capsuleFillColor)
             }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
