@@ -9,18 +9,32 @@
 import UIKit
 import UserNotifications
 import UserNotificationsUI
+import SpriteKit
 
-class NotificationViewController: UIViewController, UNNotificationContentExtension {
+class NotificationViewController: UIViewController {
+    private lazy var scene: GameScene? = {
+        $0?.scaleMode = .aspectFill
+        return $0
+    }(GameScene(fileNamed: "GameScene"))
 
-    @IBOutlet var label: UILabel?
-    
+    override func loadView() {
+        view = {
+            $0.ignoresSiblingOrder = true
+            $0.showsFPS = false
+            $0.showsNodeCount = false
+            return $0
+        }(SKView())
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any required interface initialization here.
+        guard let scene = scene, let skView = self.view as? SKView else { return }
+        skView.presentScene(scene)
+        becomeFirstResponder()
     }
-    
-    func didReceive(_ notification: UNNotification) {
-        self.label?.text = "notification.request.content.body"
-    }
+}
 
+extension NotificationViewController: UNNotificationContentExtension {
+    func didReceive(_ notification: UNNotification) {
+    }
 }
