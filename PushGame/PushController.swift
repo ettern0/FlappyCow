@@ -44,6 +44,7 @@ final class PushController: NSObject {
             content.categoryIdentifier = "timeToPlayNotification"
 
             content.title = "Time to play!"
+            content.subtitle = "Pull down to play"
             content.sound = UNNotificationSound.default
 
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: time.timeInterval, repeats: false)
